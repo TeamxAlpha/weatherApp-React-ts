@@ -1,38 +1,232 @@
+/*Main*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+  color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/*Dark Theme*/
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.weather-container.dark-mode {
+  background:linear-gradient(to right,#6b6767,#000000);
+  color: white;
   min-height: 100vh;
+}
+
+.weather-container.light-mode {
+  background: linear-gradient(to right, #edcd58,#e83c33);
+  color: black;
+  min-height: 100vh;
+}
+
+.mode-button {
+  position: relative;
+  margin-bottom: 10px;
+  background-color: black;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mode-button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: background-color 0.5s;
+}
+
+.mode-button:hover {
+  background-color: black;
+  color: white;
+}
+
+/*SearchForm*/
+
+/*Weather Container*/
+
+label {
+  font-size: 16px;
+}
+
+.Header {
+  display: flex;
+  flex: 1;
+  align-items: start;
+  justify-content: start;
+}
+
+.weather-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: start;
+  padding: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: -20px;
+}
+
+.header {
+  margin: 10px 0;
+}
+
+.input-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 14px;
+  width: 70%;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 25, 0.5);
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: gray;
+  border: none;
+  border-radius: 20px;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: black;
   color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 2, 0.5);
 }
 
-.App-link {
-  color: #61dafb;
+.button:focus {
+  border-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Weather-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  font-size: 10px;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+  background: linear-gradient(transparent);
+  width: auto;
+  height: auto;
+}
+
+.location-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+/*Forecat Section*/
+
+.forecast-data-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.forecast-data {
+  border: 1px solid;
+  border-color: #eaeaea;
+  border-radius: 10px;
+  background-color:  #968f8f;
+  padding: 20px;
+  text-align: center;
+}
+
+.forecast-data:nth-child(2n) {
+  border-color: #d3d3d3;
+}
+
+.forecast-data:nth-child(3n) {
+  border-color: #c0c0c0;
+}
+
+/*Temp Converter*/
+
+.Temp-container {
+  display: flex;
+  flex: 1;
+  justify-content: start;
+  align-items: start;
+}
+
+.temperture-input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 40%;
+  transition: border-color 0.3s;
+}
+
+/* Web Responsiveness */
+@media (min-width: 768px) {
+  .Header {
+    font-size: 48px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .weather-container {
+    padding: 40px;
+  }
+  
+  .input-field {
+    font-size: 16px;
+    width: 80%;
+  }
+  
+  .button {
+    font-size: 18px;
+  }
+  
+  .Weather-details {
+    font-size: 24px;
+  }
+  
+  .forecast-data {
+    font-size: 24px;
+  }
+  
+  .temperture-input {
+    font-size: 24px;
   }
 }
