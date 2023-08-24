@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../reducers';
 import { WeatherState } from './types';
+import TemperatureConverter from './TemperatureConverter';
 import clearImage from '../images/clear2.png';
 import rainyImage from '../images/heavy rain.gif';
 import tempImage from '../images/temp gif.gif';
@@ -132,16 +133,22 @@ const WeatherApp: React.FC = () => {
               <p>Weather: {dayWeather.weather[0].description}</p>
               <img className='weather-image' src={`http://openweathermap.org/img/wn/${dayWeather.weather[0].icon.replace('n', 'd')}@2x.png`} alt="Weather" />
               <p>Temperature: {(dayWeather.main.temp - 273.15).toFixed(2)}°C</p>
+              <p>{(dayWeather.main.temp_min - 273.15).toFixed(2)}°C - {(dayWeather.main.temp_max - 273.15).toFixed(2)}°C</p>
             </div>
-    );
-  })}
-</div>
+            
+                 );
+            })}
+ 
+            </div>
 
-
+          <TemperatureConverter />
+          
         </div>
+        
       )}
     </div>
-  );
+ 
+ );
 };
 
 export default WeatherApp;

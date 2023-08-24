@@ -13,7 +13,8 @@ function App() {
     <div className='App'>
         <Provider store={store}>
         <WeatherContainer />
-    </Provider>
+      </Provider>
+    
     </div>
 
   );

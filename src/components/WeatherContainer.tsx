@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchForm from './SearchForm';
-import TemperatureConverter from './TemperatureConverter';
+
 
 
 const WeatherContainer: React.FC = () => {
@@ -21,10 +21,10 @@ const toggleMode = () => {
             {isDarkMode ? 'Light Mode' : 'Dark Mode'}
         </button>
         <SearchForm />
-        <TemperatureConverter />
       </div>
     </div>
     </div>
+   
   );
 };
 
